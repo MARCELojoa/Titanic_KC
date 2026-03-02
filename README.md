@@ -1,6 +1,6 @@
 # 🚢 Titanic — Machine Learning from Disaster
 
-> *Kaggle Competition | Binary Classification | Survival Prediction*
+> *Kaggle Competition | Survival Prediction*
 
 ## 📌 Overview
 
@@ -13,6 +13,7 @@ This project builds a **predictive machine learning model** to answer:
 
 Train a binary classifier on labeled passenger data to predict survival (`0 = Did not survive`, `1 = Survived`) for unseen test records.
 **Evaluation Metric:** Accuracy (percentage of correctly predicted passengers)
+( Future plan : Do Benchmark Analysis against different models
 ## 📁 Dataset
 
 | File | Description |
@@ -78,7 +79,7 @@ Hyperparameter tuning via **GridSearchCV** with 5-fold cross-validation ( Future
 |-------|-------------|
 | Logistic Regression | ~ will do |
 | SVM | ~ will do|
-| KNN | ~ will do |
+| KNN | ~83.83% |
 | Random Forest | **~97.98%** |
 | XGBoost | ~89.33% |
 
