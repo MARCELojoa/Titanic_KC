@@ -85,6 +85,7 @@ Hyperparameter tuning via **GridSearchCV** with 5-fold cross-validation ( Future
 > Final submission used the **Random Forest** model with tuned hyperparameters.
 
 ## 🗂️ Project Structure
+----
 
 titanic/
 │
@@ -180,6 +181,7 @@ PassengerId,Survived
 
 **Kushanavo**
 Civil Engineering | IIEST Shibpur
+
 *Exploring Machine Learning & Data Science*
 
 [![Kaggle](https://img.shields.io/badge/Kaggle-Profile-blue?logo=kaggle)](https://www.kaggle.com)
