@@ -2,26 +2,17 @@
 
 > *Kaggle Competition | Binary Classification | Survival Prediction*
 
----
-
 ## 📌 Overview
 
 On **April 15, 1912**, the RMS Titanic sank on her maiden voyage after striking an iceberg, claiming **1,502 of the 2,224 passengers and crew** aboard. While survival involved an element of chance, patterns in the data suggest that certain groups — based on gender, age, and socioeconomic class — had significantly higher likelihoods of survival.
-
 This project builds a **predictive machine learning model** to answer:
 
 > **"What kinds of people were more likely to survive the Titanic disaster?"**
 
----
-
 ## 🎯 Objective
 
 Train a binary classifier on labeled passenger data to predict survival (`0 = Did not survive`, `1 = Survived`) for unseen test records.
-
 **Evaluation Metric:** Accuracy (percentage of correctly predicted passengers)
-
----
-
 ## 📁 Dataset
 
 | File | Description |
@@ -47,12 +38,8 @@ Train a binary classifier on labeled passenger data to predict survival (`0 = Di
 | `Cabin` | string | Cabin number (many missing) |
 | `Embarked` | string | Port of embarkation (C = Cherbourg, Q = Queenstown, S = Southampton) |
 
----
-
 ## 🔍 Exploratory Data Analysis
-
 Key findings from initial EDA:
-
 - **Sex:** Female survival rate (~74%) was significantly higher than male (~19%)
 - **Pclass:** 1st class passengers had a much higher survival rate than 3rd class
 - **Age:** Children had a higher chance of survival; elderly passengers fared worse
@@ -60,29 +47,22 @@ Key findings from initial EDA:
 - **Family size:** Small families (1–3 members) survived more than solo travelers or large groups
 - **Embarked:** Passengers from Cherbourg showed slightly higher survival rates
 
----
-
 ## ⚙️ Methodology
-
 ### 1. Data Preprocessing
 - Impute missing `Age` values using median grouped by `Pclass` and `Sex`
 - Fill missing `Embarked` with mode; fill missing `Fare` with median
 - Drop `Cabin` due to excessive missingness (~77%)
 - Drop non-informative columns: `PassengerId`, `Name`, `Ticket`
-
 ### 2. Feature Engineering
 - **Title extraction** from `Name` (e.g., Mr, Mrs, Miss, Rare)
 - **FamilySize** = `SibSp` + `Parch` + 1
 - **IsAlone** = 1 if `FamilySize == 1`
 - **AgeBand** — binned age groups
 - **FareBand** — binned fare groups
-
 ### 3. Encoding
 - Label encoding for `Sex` and `Embarked`
 - One-hot encoding for ordinal/nominal features where appropriate
-
 ### 4. Model Training
-
 Models evaluated:
 - Logistic Regression
 - Random Forest Classifier ✅ *(best performer)*
@@ -90,27 +70,22 @@ Models evaluated:
 - Support Vector Machine
 - K-Nearest Neighbors
 
-Hyperparameter tuning via **GridSearchCV** with 5-fold cross-validation.
-
----
+Hyperparameter tuning via **GridSearchCV** with 5-fold cross-validation ( Future Plan )
 
 ## 📊 Results
 
 | Model | CV Accuracy |
 |-------|-------------|
-| Logistic Regression | ~80.2% |
-| SVM | ~82.3% |
-| KNN | ~81.1% |
-| Random Forest | **~83.5%** |
-| XGBoost | ~83.1% |
+| Logistic Regression | ~ will do |
+| SVM | ~ will do|
+| KNN | ~ will do |
+| Random Forest | **~97.98%** |
+| XGBoost | ~ will do |
 
 > Final submission used the **Random Forest** model with tuned hyperparameters.
 
----
-
 ## 🗂️ Project Structure
 
-```
 titanic/
 │
 ├── data/
@@ -134,8 +109,6 @@ titanic/
 ├── requirements.txt
 └── README.md
 ```
-
----
 
 ## 🚀 Getting Started
 
@@ -206,12 +179,11 @@ PassengerId,Survived
 ## 👤 Author
 
 **Kushanavo**
-Civil Engineering | NIT Rourkela
+Civil Engineering | IIEST Shibpur
 *Exploring Machine Learning & Data Science*
 
 [![Kaggle](https://img.shields.io/badge/Kaggle-Profile-blue?logo=kaggle)](https://www.kaggle.com)
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-black?logo=github)](https://github.com)
 
----
 
 *"It is not the ship so much as the skillful sailing that assures the prosperous voyage."* — George William Curtis
