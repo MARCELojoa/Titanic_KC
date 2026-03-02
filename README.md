@@ -80,7 +80,7 @@ Hyperparameter tuning via **GridSearchCV** with 5-fold cross-validation ( Future
 | SVM | ~ will do|
 | KNN | ~ will do |
 | Random Forest | **~97.98%** |
-| XGBoost | ~ will do |
+| XGBoost | ~89.33% |
 
 > Final submission used the **Random Forest** model.
 
