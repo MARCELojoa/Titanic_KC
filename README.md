@@ -77,11 +77,11 @@ Hyperparameter tuning via **GridSearchCV** with 5-fold cross-validation
 
 | Model | CV Accuracy |
 |-------|-------------|
-| Logistic Regression | ~ will do |
-| SVM | ~84.51%|
-| KNN | ~83.83% |
-| Random Forest | **~97.98%** |
-| XGBoost | ~89.33% |
+| Logistic Regression |~79.91%|
+| SVM |~84.51%|
+| KNN |~83.83% |
+| Random Forest |**~97.98%**|
+| XGBoost |~89.33%|
 
 > Final submission used the **Random Forest** model.
 
